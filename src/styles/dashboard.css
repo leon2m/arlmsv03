@@ -1,0 +1,1835 @@
+/* Animasyonlar */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Genel Stiller */
+.hover-card {
+  transition: all 0.3s ease;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Arkaplanlar */
+.gradient-bg-1 {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-bg-3 {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.gradient-bg-4 {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.gradient-bg-1 {
+  background: linear-gradient(-45deg, #FF6B6B, #4ECDC4, #45B7D1, #96E6B3);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(-45deg, #FFD93D, #FF8E3C, #FF4949, #6C63FF);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+.gradient-bg-3 {
+  background: linear-gradient(-45deg, #4158D0, #C850C0, #FFCC70, #70FFB9);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+.gradient-bg-4 {
+  background: linear-gradient(-45deg, #8E2DE2, #4A00E0, #924ADC, #6B8DD6);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* İstatistik Kartları */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  color: #ffffff;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: rotate(45deg);
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+
+.stat-card:hover::before {
+  transform: rotate(90deg);
+}
+
+.stat-card .icon {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.4));
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.stat-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.stat-card:hover .icon {
+  animation: spinGlow 1.5s ease-in-out;
+}
+
+@keyframes spinGlow {
+  0% { transform: rotate(0deg); filter: drop-shadow(0 0 8px rgba(255,255,255,0.4)); }
+  100% { transform: rotate(360deg); filter: drop-shadow(0 0 20px rgba(255,255,255,0.8)); }
+}
+
+.stat-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card p {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0.5rem 0;
+}
+
+.stat-card .subtitle {
+  font-size: 0.875rem;
+  color: rgba(170, 45, 45, 0.8);
+  margin-top: 0.5rem;
+}
+
+/* Stat Kartları için Temel Stiller */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #ffffff;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+/* Kurs Kartları - Hizalama ve görsel düzeni için */
+.course-card {
+  background: white;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Görsel konteyneri - Sabit en-boy oranı için */
+.course-card .relative {
+  background: #f8fafc;
+}
+
+/* Görseller için hover efekti */
+.course-card img {
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Kart içeriği için flex düzeni */
+.course-card .p-4 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Alt bilgiler için stil */
+.course-card .mt-4 {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Logo ve Avatar Stilleri */
+.logo-container img {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover img {
+  transform: scale(1.05);
+}
+
+.avatar-container img {
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.avatar-container:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* XP ve Seviye Kartı */
+.stat-card:nth-child(1) {
+  background: linear-gradient(135deg, #000000 0%, #005024 100%);
+  border: 0px solid rgba(107, 255, 255, 0.3); 
+}
+
+.stat-card:nth-child(1):hover {
+  box-shadow: 0 12px 40px rgba(60, 88, 114, 0.3);
+  transform: translateY(-5px);
+  border-color: rgba(91, 100, 131, 0.5);
+}
+
+/* Tamamlanan Eğitimler Kartı */
+.stat-card:nth-child(2) {
+  background: linear-gradient(135deg, #000000 0%, #00524b 100%);
+  border: 0px solid rgba(78, 205, 196, 0.3);
+}
+
+.stat-card:nth-child(2):hover {
+  box-shadow: 0 12px 40px rgba(78, 205, 196, 0.3);
+  transform: translateY(-5px);
+  border-color: rgba(78, 205, 196, 0.5);
+}
+
+/* Öğrenme Serisi Kartı */
+.stat-card:nth-child(3) {
+  background: linear-gradient(135deg, #000000 0%, #040036 100%);
+  border: 0px solid rgba(168, 230, 207, 0.3);
+}
+
+.stat-card:nth-child(3):hover {
+  box-shadow: 0 12px 40px rgba(168, 230, 207, 0.3);
+  transform: translateY(-5px);
+  border-color: rgba(168, 230, 207, 0.5);
+}
+
+/* Başarı Rozetleri Kartı */
+.stat-card:nth-child(4) {
+  background: linear-gradient(135deg, #191b1b 0%, #2e002c 100%);
+  border: 0px solid rgb(255, 255, 255);
+}
+
+/* Yatay kaydırılabilir konteynır */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Progress Bar Stilleri */
+.stat-card .progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.stat-card .progress-bar > div {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  position: relative;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Özel Progress Bar Renkleri */
+.stat-card:nth-child(1) .progress-bar > div {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.stat-card:nth-child(2) .progress-bar > div {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+}
+
+.stat-card:nth-child(3) .progress-bar > div {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(168, 230, 207, 0.5);
+}
+
+.stat-card:nth-child(4) .progress-bar > div {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 217, 61, 0.5);
+}
+
+/* İkon Stilleri */
+.stat-card .icon {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* AI Chat Bölümü */
+.ai-chat {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ai-chat-header {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-chat-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.ai-chat-messages {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(249,250,251,0.95) 100%);
+}
+
+.ai-message, .user-message {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  max-width: 80%;
+  animation: messageSlide 0.3s ease-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ai-message {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  margin-right: auto;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.user-message {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 0.25rem;
+}
+
+/* Yeni Animasyonlar */
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Progress Bar Animasyonları */
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar > div {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar > div::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 100%);
+  animation: shimmer 2s infinite;
+}
+
+/* Gradient Arkaplanlar */
+.gradient-bg-1 {
+  background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+  color: white;
+  position: relative;
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(135deg, #A8E6CF, #1DD3B0);
+  color: white;
+  position: relative;
+}
+
+.gradient-bg-3 {
+  background: linear-gradient(135deg, #FFD93D, #FF6B6B);
+  color: white;
+  position: relative;
+}
+
+.gradient-bg-4 {
+  background: linear-gradient(135deg, #6C63FF, #3F3D56);
+  color: white;
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stat-card {
+    margin-bottom: 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Custom Variables */
+:root {
+  --primary-color: #4f46e5;
+  --primary-light: #6366f1;
+  --primary-dark: #4338ca;
+  --secondary-color: #10b981;
+  --secondary-light: #34d399;
+  --secondary-dark: #059669;
+  --accent-color: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-dark: #6d28d9;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --background-light: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Enhanced Animations */
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardHover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* Responsive Grid Items */
+.stat-card, .achievement-card, .course-card {
+  height: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeIn 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-card:hover, .achievement-card:hover, .course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Level Badge */
+.level-badge {
+  background: linear-gradient(135deg, var(--warning-color), #ea580c);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Gamification Elements */
+.badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badge::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dashboard Styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Variables */
+:root {
+  --primary-color: #4f46e5;
+  --primary-light: #6366f1;
+  --primary-dark: #4338ca;
+  --secondary-color: #10b981;
+  --secondary-light: #34d399;
+  --secondary-dark: #059669;
+  --accent-color: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-dark: #6d28d9;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --background-light: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
+
+/* AI Chat Widget Styles */
+.ai-chat-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+.ai-chat-toggle {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  position: relative;
+}
+
+.ai-chat-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.4);
+}
+
+.ai-chat-toggle .notification {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: #ef4444;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  animation: pulse 2s infinite;
+}
+
+.ai-chat-window {
+  position: fixed;
+  bottom: 6.5rem;
+  right: 2rem;
+  width: 380px;
+  height: 600px;
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: bottom right;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.ai-chat-window.closing {
+  animation: slideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+}
+
+.ai-chat-header {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-chat-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  animation: rotate 10s linear infinite;
+}
+
+.ai-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.ai-message, .user-message {
+  max-width: 85%;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  animation: messageSlide 0.3s ease-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ai-message {
+  background: white;
+  margin-right: auto;
+  border-bottom-left-radius: 0.25rem;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.user-message {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.ai-message.typing {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: #6366f1;
+  border-radius: 50%;
+  animation: typingBounce 1s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+.ai-chat-input {
+  padding: 1.25rem;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.chat-input {
+  flex: 1;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.send-button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button:hover {
+  background: #4f46e5;
+  transform: scale(1.05);
+}
+
+/* Genel Kart Tasarımı */
+.popular-course-card,
+.certificate-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px; /* Kart genişliğini biraz artırdım */
+}
+
+/* Genel Kart Tasarımı */
+.popular-course-card,
+.certificate-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px; /* Kart genişliğini biraz artırdım */
+}
+
+/* Sayfanın Tam Ortasına Hizalama */
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Yatay hizalama */
+  align-items: center; /* Dikey hizalama */
+  height: 100vh; /* Ekranın tamamını kaplasın */
+  gap: 2rem;
+}
+
+/* Popüler Kurs Kartları */
+.popular-course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popular-course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.popular-course-card:hover::before {
+  opacity: 1;
+}
+
+.popular-course-card img {
+  transition: transform 0.5s ease;
+}
+
+.popular-course-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Sertifika Kartları */
+.certificate-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-card:hover::after {
+  opacity: 1;
+}
+
+.certificate-card img {
+  transition: transform 0.5s ease;
+}
+
+.certificate-card:hover img {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.certificate-card .progress-bar {
+  height: 6px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.certificate-card .progress-bar > div {
+  height: 100%;
+  background: #10b981;
+  border-radius: 999px;
+  transition: width 1s ease;
+}
+
+/* Mobil Uyum */
+@media (max-width: 768px) {
+  .course-container {
+    flex-direction: column; /* Küçük ekranlarda kartları alt alta dizer */
+    height: auto; /* Yüksekliği otomatik ayarlar */
+    padding: 2rem 1rem;
+  }
+}
+
+/* Öğrenme Yolculuğu Kartları */
+.learning-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.learning-journey-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 4px solid #6366f1;
+}
+
+.learning-journey-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  border-left-width: 6px;
+}
+
+.learning-journey-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.learning-journey-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.learning-journey-header h3 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #1f2937;
+}
+
+.learning-journey-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6366f1;
+  opacity: 0.8;
+}
+
+.learning-journey-progress {
+  margin-top: auto;
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar > div {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1280px) {
+  .learning-journey-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .learning-journey-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .learning-journey-card {
+    min-height: 140px;
+  }
+}
+
+/* Önerilen Kurslar Kartları */
+.recommended-course-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommended-course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recommended-course-card .course-image {
+  position: relative;
+  padding-top: 60%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.recommended-course-card .course-details {
+  padding: 1rem 0;
+}
+
+/* Sertifika Kartları */
+.certificate-progress-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-progress-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-progress-card .certificate-image {
+  position: relative;
+  padding-top: 60%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.certificate-progress-card .progress-section {
+  margin-top: 1rem;
+}
+
+.certificate-progress-card .progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 999px;
+}
+
+.certificate-progress-card .progress-bar div {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 999px;
+  transition: width 1s ease;
+}
+
+/* ChatBot Styles */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 4px 8px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: #6366f1;
+  border-radius: 50%;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes typing {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* Önerilen Kurslar Kartları */
+.recommended-course-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommended-course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recommended-course-card .course-image {
+  position: relative;
+  padding-top: 60%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.recommended-course-card .course-details {
+  padding: 1rem 0;
+}
+
+/* Sertifika Kartları */
+.certificate-progress-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-progress-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-progress-card .certificate-image {
+  position: relative;
+  padding-top: 60%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.certificate-progress-card .progress-section {
+  margin-top: 1rem;
+}
+
+.certificate-progress-card .progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 999px;
+}
+
+.certificate-progress-card .progress-bar div {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 999px;
+  transition: width 1s ease;
+}
+
+/* Chatbot Stilleri */
+.chatbot-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+}
+
+.chatbot-icon {
+  background-color: #6366f1; /* indigo-500 */
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chatbot-icon:hover {
+  background-color: #4f46e5; /* indigo-600 */
+  transform: scale(1.05);
+}
+
+.bounce-animation {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.chatbot-window {
+  width: 380px;
+  height: 500px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-header {
+  background-color: #6366f1; /* indigo-500 */
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.chatbot-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  max-width: 90%;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #6366f1; /* indigo-500 */
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #f3f4f6; /* gray-100 */
+  color: #1f2937; /* gray-900 */
+  border-radius: 12px;
+  padding: 10px;
+  margin-right: auto;
+}
+
+.message svg {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.chatbot-input {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.chat-input {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.send-button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button:hover:not(:disabled) {
+  background: #4f46e5;
+  transform: scale(1.05);
+}
+
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animasyonlar */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-animation p {
+  display: flex;
+  gap: 4px;
+  padding: 14px !important;
+}
+
+.typing-animation .dot {
+  animation: bounce 1s infinite;
+}
+
+.typing-animation .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-animation .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+  }
+}
+
+.slide-up {
+  animation: slideUpInput 0.3s ease;
+}
+
+@keyframes slideUpInput {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-icon {
+  background: #4f46e5;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chatbot-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-window {
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.3s ease forwards;
+}
+
+.chatbot-window.closing {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.chatbot-header {
+  background: #4f46e5;
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.chatbot-header button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.user-message {
+  flex-direction: row-reverse;
+}
+
+.message p {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+.bot-message p {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.user-message p {
+  background: #4f46e5;
+  color: white;
+}
+
+.chatbot-input {
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 8px;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.chatbot-input input:focus {
+  border-color: #4f46e5;
+}
+
+.chatbot-input button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-input button:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.chatbot-input button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animasyonlar */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-animation p {
+  display: flex;
+  gap: 4px;
+  padding: 14px !important;
+}
+
+.typing-animation .dot {
+  animation: bounce 1s infinite;
+}
+
+.typing-animation .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-animation .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+  }
+}
+
+.slide-up {
+  animation: slideUpInput 0.3s ease;
+}
+
+@keyframes slideUpInput {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.öğrenme-yolu-stilleri {
+  background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.öğrenme-yolu-header {
+  background: linear-gradient(to right, #4f46e5, #6366f1);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.yetenek-karti {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.yetenek-karti:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.ai-asistan-bolumu {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ai-asistan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.ai-öneri {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.ai-öneri:hover {
+  border-color: #6366f1;
+}
+
+.progress-bar {
+  height: 0.5rem;
+  background: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #4f46e5, #6366f1);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.kategori-filtresi {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kategori-filtresi:hover {
+  background-color: #f3f4f6;
+}
+
+.kategori-filtresi.active {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.yeni-hedef-ekleme {
+  background: white;
+  border: 2px dashed #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.yeni-hedef-ekleme:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
